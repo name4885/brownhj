@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.BoardMapper">
+	
+	<select id="getList" resultType="org.zerock.domain.BoardVO">
+		<![CDATA[ 
+			select * from board where bo_num > 0 order by bo_num desc
+		]]>
+	</select>
+	<select id="getTotalCount" resultType="int">
+		select count(*) from board
+		<choose>
+			<when test="type=='T'.toString()">
+				where bo_title like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='C'.toString()">
+				where bo_text like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='W'.toString()">
+				where user_id like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='TC'.toString()">
+				where bo_title like concat('%',#{keyword},'%')
+				or and bo_text like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='TW'.toString()">
+				where bo_title like concat('%',#{keyword},'%')
+				or user_id like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='TWC'.toString()">
+				where bo_title like concat('%',#{keyword},'%')
+				or bo_text like concat('%',#{keyword},'%')
+				or user_id like concat('%',#{keyword},'%')
+			</when>
+		</choose>
+	</select>
+	<select id="getListWithPaging" resultType="org.zerock.domain.BoardVO">
+			select bo_num,bo_title,bo_text,user_id,bo_date,ctCnt
+			from(select  @rownum:= @rownum+1 as rownum, b.*
+			from (select @rownum:=0) as tmp, board as b
+			order by bo_num desc)
+			as boardList <!-- as boardList로 table명을 지정해줘야 이 식이 성립됨 -->
+	<![CDATA[
+			where rownum>(#{pageNum}-1)*#{amount} and rownum<=#{pageNum}*#{amount}
+		]]>
+		<choose>
+			<when test="type=='T'.toString()">
+				and bo_title like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='C'.toString()">
+				and bo_text like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='W'.toString()">
+				and user_id like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='TC'.toString()">
+				and bo_title like concat('%',#{keyword},'%')
+				or bo_text like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='TW'.toString()">
+				and bo_title like concat('%',#{keyword},'%')
+				or user_id like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='TWC'.toString()">
+				and bo_title like concat('%',#{keyword},'%')
+				or bo_text like concat('%',#{keyword},'%')
+				or user_id like concat('%',#{keyword},'%')
+			</when>
+		</choose>
+	</select>
+	<insert id="insert">
+		insert into board (bo_title,bo_text,user_id)
+		values (#{bo_title}, #{bo_text}, #{user_id})
+	</insert>
+	
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="bo_num" order="BEFORE" resultType="int"> 
+			select ifnull(max(bo_num),0)+1 bo_num from board
+		</selectKey>
+		
+		insert into board (bo_num, bo_title, bo_text, user_id)
+		values (#{bo_num},#{bo_title}, #{bo_text}, #{user_id})
+	</insert>	
+	
+	<select id="read" resultType="org.zerock.domain.BoardVO">
+		select * from board where bo_num = #{bo_num}
+	</select>
+	
+	<delete id="delete">
+		delete from board where bo_num = #{bo_num}
+	</delete>
+	
+	<delete id="update">
+		update board set bo_title=#{bo_title}, bo_text=#{bo_text},
+		bo_update=now() where bo_num=#{bo_num};
+	</delete>
+	
+	  <update id="updateCommentCnt">
+      update board
+      set ctCnt = ctCnt+#{amount}
+      			<!--  댓글갯수     	1 또는 -1	 -->
+      where bo_num = #{bo_num}
+   </update>
+</mapper>

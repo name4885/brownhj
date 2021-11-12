@@ -1,0 +1,69 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    color: #222;
+}
+ul, ol{
+    list-style: none;
+}
+img{
+    vertical-align: top;
+    border: 0;
+    width: 100%;
+    height: auto;
+}
+a{
+    text-decoration: none;
+    color:#666;
+}
+.hide{
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+fieldset{border: 0;}
+legend{display: none;}
+
+.list_write{
+	padding-left: 40px;
+	padding-bottom:40px;
+}
+
+.list_name{
+    border: 0;
+    top:3px;
+    background: transparent;
+    outline: none;
+}
+.table_side tr td{
+	padding:10px;
+	text-align:center;
+	border:1px solid;
+}
+
+
+#writingList-wrap{
+	padding-top:10px;
+}
+
+.write_po{
+	position:absolute;
+	bottom:-100px;
+	left:480px;
+	border-bottom:1px solid;
+}
+
+
+.t_style{
+	height:40px;
+	width:30px;
+}

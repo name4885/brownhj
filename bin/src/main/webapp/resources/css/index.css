@@ -1,0 +1,263 @@
+@charset "utf-8";
+.login_show{
+    display: none;
+}
+#wrap{
+    width: 100%;
+    min-width: 1240px;
+}
+#header{
+    height: 130px;
+    /* background-color: aquamarine; */
+}
+#headerIn{
+    width: 1280px;
+    height: 90px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* background-color: antiquewhite; */
+}
+.logo{
+    width: 150px;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    
+    background-color: blueviolet;
+}
+.gnb{
+    height: 40px;
+    position: absolute;
+    bottom: -40px;
+}
+.gnb li a:hover{
+    color: #ccc;
+}
+.gnb ul{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.gnb ul li{
+    width: 426px;
+    text-align: center;
+}
+.gnb .gnb_point a{
+    color: yellow;
+}
+.gnb ul li a{
+    font-size: 20px;
+    line-height: 40px;
+    padding: 5px 100px;
+    color: #222;
+    font-weight: 500;
+    /* background-color: rosybrown; */
+}
+.gnb li:nth-child(2){
+    content: "";
+    background-color: rgba(10, 10, 202, 0.575);
+}
+.gnb li:not(:nth-child(2)){
+    content: "";
+    background-color: rgba(61, 231, 61, 0.623);
+}
+
+.util{
+    position: absolute;
+    right: 0;
+}
+.util ul{
+    display: flex;
+}
+.util li{
+    margin-left: 10px;
+}
+.util li:nth-child(2)::before{
+    content: "";
+
+}
+.util li a{
+    color: #333;
+}
+.search{
+    position: relative;
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 0, 0.726);
+    border: none;
+}
+.search fieldset{
+    display: flex;
+    align-content: center;
+}
+.hs_input_text{
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    border: 0;
+    margin-left: 20px;
+    padding-right: 30px;
+
+}
+.hs_input_btn{
+    width: 40px;
+    height: 30px;
+    text-indent: -99999px;
+    border: 0;
+    background-color: transparent;
+    background-image: url(../img/icon_search.png);
+    background-size: 20px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+
+
+.row1 {   
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.hobi {
+    position: relative;
+}
+
+.row1_text {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    z-index: 1;
+    line-height: 50px;
+    color: rgb(255, 255, 249) ;
+    font-size: 30px;
+}
+
+
+.row2{
+    width: 100%;
+    height: 100%;
+}
+.r2In{
+    width: 1280px;
+    height: 500px;
+    margin: 30px auto 0 auto;
+    padding-top: 30px;
+    background-color: rgb(255, 255, 255);
+}
+.localSelect ul{
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.localSelect ul li{
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgb(250, 250, 250);
+}
+.localSelect ul li:hover {
+    background-color: #999;
+}
+
+.localSelect ul li .localImg{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.localSelect .localImg img{
+    height: 50px;
+    width: 50px;
+    margin-top: 15px;
+}
+
+.localSelect .localImg:hover {
+    
+    transform:scale(1.6);
+}
+
+.lhBox{
+    position: relative;
+}
+.lhList{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -630px; 
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 30px 20px;
+    text-align: center;
+    line-height: 1.6em;
+    font-size: 30px;
+    /* background-color: crimson; */
+}
+.lhList dt{
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+.lhImg{
+    margin-top: 50px;
+    width: 400px;
+    height: 250px;
+}
+
+.lhImg:hover {
+    transform:scale(1.2);
+    transition: transform .35s;
+}
+
+.lhList dd a:hover {
+    background-color: #999;
+    color: rgb(228, 0, 0);
+}
+.localSelect ul .active{
+    background-color: gold;
+}
+
+
+#footer{
+    width: 100%;
+    background-color: #ffffff;
+    padding-top: 30px;
+    padding-bottom: 80px;
+    margin-top: 30px;
+}
+
+.footerIn{
+    width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.fLogo{
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.fR {
+    margin-top: 10px;
+}
+
+
+.copyright{
+    color: #adaeb0;
+}
+
+
+
+.goTop{
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+}
+

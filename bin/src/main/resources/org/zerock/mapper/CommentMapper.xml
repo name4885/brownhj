@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.CommentMapper">
+	<!-- 댓글쓰기 -->
+	<insert id="insert">
+		insert into comment (bo_num,co_text,user_id)
+		values (#{bo_num}, #{co_text}, #{user_id})
+	</insert>
+	<!-- 댓글상세페이지 -->
+	<select id="read" resultType="org.zerock.domain.CommentVO">
+		select * from comment where co_num=#{co_num}
+	</select>
+	<!-- 댓글삭제 -->
+	<delete id="delete">
+		delete from comment where co_num=#{co_num}
+	</delete>
+	<!-- 댓글수정 -->
+	<update id="update">
+		update comment set co_text=#{co_text},
+							 co_update=now()
+							 where co_num=#{co_num}
+	</update>
+	<!-- 댓글 목록 리스트 -->
+	<select id="getListWithPaging" resultType="org.zerock.domain.CommentVO">
+		select co_num,bo_num,co_text,user_id,co_date,co_update
+			from(select  @rownum:= @rownum+1 as rownum, c.*
+			from (select @rownum:=0) as tmp, comment as c
+            where bo_num=#{bo_num}
+			order by co_num desc)
+			as CommentList
+            <![CDATA[
+			where rownum>(#{cri.pageNum}-1)*#{cri.amount} and rownum<=#{cri.pageNum}*#{cri.amount}
+			]]>
+	</select>
+	<select id="getCountByBo_num" resultType="int">
+		<![CDATA[
+			select count(*) from comment where bo_num=#{bo_num}
+		]]>
+	</select>
+</mapper>

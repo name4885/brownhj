@@ -1,0 +1,259 @@
+@charset "UTF-8";
+.login_show{
+    display: none;
+}
+
+#wrap{
+    width: 100%;
+    min-width: 1240px;
+}
+#header{
+    height: 130px;
+    /* background-color: aquamarine; */
+}
+#headerIn{
+    width: 1280px;
+    height: 90px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* background-color: antiquewhite; */
+}
+.logo{
+    width: 150px;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    
+    background-color: blueviolet;
+}
+.gnb{
+    height: 40px;
+    position: absolute;
+    bottom: -40px;
+}
+.gnb li a:hover{
+    color: #ccc;
+}
+.gnb ul{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.gnb ul li{
+    width: 426px;
+    text-align: center;
+}
+.gnb .gnb_point a{
+    color: yellow;
+}
+.gnb ul li a{
+    font-size: 20px;
+    line-height: 40px;
+    padding: 5px 100px;
+    color: #222;
+    font-weight: 500;
+    /* background-color: rosybrown; */
+}
+.gnb li:nth-child(2){
+    content: "";
+    background-color: rgba(10, 10, 202, 0.575);
+}
+.gnb li:not(:nth-child(2)){
+    content: "";
+    background-color: rgba(61, 231, 61, 0.623);
+}
+
+.util{
+    position: absolute;
+    right: 0;
+}
+.util ul{
+    display: flex;
+}
+.util li{
+    margin-left: 10px;
+}
+.util li:nth-child(2)::before{
+    content: "";
+
+}
+.util li a{
+    color: #333;
+}
+.search{
+    position: relative;
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 0, 0.726);
+    border: none;
+}
+.search fieldset{
+    display: flex;
+    align-content: center;
+}
+.hs_input_text{
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    border: 0;
+    margin-left: 20px;
+    padding-right: 30px;
+
+}
+.hs_input_btn{
+    width: 40px;
+    height: 30px;
+    text-indent: -99999px;
+    border: 0;
+    background-color: transparent;
+    background-image: url(../img/icon_search.png);
+    background-size: 20px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+
+
+#board-wrap{
+    width: 100%;
+    min-width: 1200px;
+    margin-top: 20px;
+}
+#board-in{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1280px;
+    height: 700px;
+}
+#left-area{
+    width: 200px;
+    height: 100%;
+    background-color: darkgrey;
+
+}
+#board-main{
+    position: relative;
+    width: 700px;
+    background-color: darkgrey;
+}
+
+.board-search{
+    position: relative;
+    width: 400px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: rgba(0, 81, 255, 0.726);
+    border: none;
+    margin: 10px auto 0 auto;
+}
+.board-search fieldset{
+    display: flex;
+    align-content: center;
+}
+.bs_input_text{
+    width: 300px;
+    height: 40px;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    margin-left: 20px;
+    padding-right: 30px;
+    font-size: 15px;
+}
+.bs_input_btn{
+    width: 40px;
+    height: 40px;
+    text-indent: -99999px;
+    border: 0;
+    background-color: transparent;
+    background-image: url(../img/icon_search.png);
+    background-size: 20px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.board-list{
+    width: 600px;
+    margin: 20px auto;
+}
+
+.board-list table td{
+    border-bottom: 1px solid #eee;
+    padding: 0 20px;
+    
+}
+.board-list td a{
+    color: #333;
+    line-height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.board-list .bo_title{
+    display: inline-block;
+}
+.goto-write{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.goto-write a{
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #333;
+    font-weight: 700;
+    background-color: #e5e5e5;
+    border: 1px solid gray;
+}
+#right-area{
+    width: 300px;
+    padding: 10px;
+    background-color: darkgrey;
+}
+
+
+
+#footer{
+    width: 100%;
+    background-color: #ffffff;
+    padding-top: 30px;
+    padding-bottom: 80px;
+    margin-top: 30px;
+}
+
+.footerIn{
+    width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.fLogo{
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.fR {
+    margin-top: 10px;
+}
+
+
+.copyright{
+    color: #adaeb0;
+}
+
+
+
+.goTop{
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+}
