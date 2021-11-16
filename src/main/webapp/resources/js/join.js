@@ -6,9 +6,9 @@
 /*변수 선언*/
 
 
-var id = document.querySelector('#id');
+var id = document.querySelector('#user_id');
 
-var pw1 = document.querySelector('#pswd1');
+var pw1 = document.querySelector('#user_pw');
 var pwMsg = document.querySelector('#alertTxt');
 var pwImg1 = document.querySelector('#pswd1_img1');
 

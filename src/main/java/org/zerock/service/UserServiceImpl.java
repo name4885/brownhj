@@ -2,6 +2,7 @@ package org.zerock.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.domain.Criteria;
@@ -16,26 +17,30 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Log4j
-@Service
+
 @AllArgsConstructor
+@Service
 public class UserServiceImpl implements UserService{
 	
-	private UserMapper mapper;
+	//@Autowired
+	//UserMapper usermapper;   == 	private UserMapper mapper;
 	
-	public void register(UserVO user) {
-		mapper.insert(user);
+	private UserMapper usermapper;
+
+	public void insert(UserVO user) {
+		 usermapper.insert(user);
 	}
 
 	public UserVO get(String user_id) {
-		return mapper.read(user_id);
+		return usermapper.read(user_id);
 	}
 	
 	public int remove(String user_id) {
-		return mapper.delete(user_id);
+		return usermapper.delete(user_id);
 	}
 
 	public int modify(UserVO user) {
-		return mapper.update(user);
+		return usermapper.update(user);
 	}
 
 

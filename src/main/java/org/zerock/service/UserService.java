@@ -10,7 +10,7 @@ import org.zerock.domain.commentPageDTO;
 
 public interface UserService {
 	// (회원가입) - Create
-	public void register(UserVO user);
+	public void insert(UserVO user);
 	
 	// (회원 정보 조회)  - Read
 	public UserVO get (String user_id);
@@ -20,4 +20,6 @@ public interface UserService {
 	
 	// (회원정보수정) - update
 	public int modify(UserVO user);
+
+
 }

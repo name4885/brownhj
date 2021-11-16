@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/join/*")   
 public class UserController {
 	
-	private UserService service;
+	private UserService userservice;
 	
 	//회원정보
 	@GetMapping("info")
@@ -28,12 +28,28 @@ public class UserController {
 //		service.get(user_id);
 	}
 	
-	//회원가입
+	//회원가입창으로 이동	
 	@GetMapping("membership")
 	public void register(UserVO user) {
 		log.info("membership");
 //		service.register(user);
 	}
+	
+	//회원가입
+	@RequestMapping(value="membership", method=RequestMethod.POST)
+	public String membershipPOST(UserVO user) throws Exception{
+		
+		log.info("join 진입");
+		
+		// 회원가입 서비스 실행
+		userservice.insert(user);
+		
+		log.info("join Service 성공");
+		
+		return "redirect:/#";
+		
+	}
+
 
 	//회원 정보 수정
 	@GetMapping("edit")

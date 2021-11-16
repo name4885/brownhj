@@ -149,6 +149,16 @@
 		</dependency>
 	
 		<!-- Test -->
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>5.0.7.RELEASE</version>
+    <scope>test</scope>
+</dependency>
+		
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

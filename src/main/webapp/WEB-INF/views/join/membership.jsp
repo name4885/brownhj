@@ -8,6 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>취공사 : 회원가입</title>
         <link rel="stylesheet" href="/resources/css/join.css">
+        <script
+  		src="https://code.jquery.com/jquery-3.4.1.js"
+  		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+ 		crossorigin="anonymous"></script>
     </head>
     <body>
         <!-- header -->
@@ -23,23 +27,25 @@
             <div id="content">
 
                 <!-- ID -->
+                <form id="join_form" method="post"> 
                 <div>
                     <h3 class="join_title">
                         <label for="id">아이디</label>
                     </h3>
                     <span class="box int_id">
-                        <input type="text" id="id" class="int" maxlength="20">
+                        <input type="text" id="user_id" class="int" maxlength="20" name="user_id">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
+                
 
                 <!-- PW1 -->
                 <div>
                     <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
                     <span class="box int_pass">
-                        <input type="password" id="pswd1" class="int" maxlength="20">
+                        <input type="password" id="user_pw" class="int" maxlength="20" name="user_pw">
                         <span id="alertTxt">사용불가</span>
-                        <img src="/img/m_icon_pass.png" id="pswd1_img1" class="pswdImg">
+                        <img src="/resources/img/m_icon_pass.png" id="pswd1_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -48,8 +54,8 @@
                 <div>
                     <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
                     <span class="box int_pass_check">
-                        <input type="password" id="pswd2" class="int" maxlength="20">
-                        <img src="img/m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
+                        <input type="password" id="user_pw_c" class="int" maxlength="20" name="user_pw_c">
+                        <img src="/resources/img/m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -57,7 +63,7 @@
                 <div>
                     <h3 class="join_title"><label for="name">이름</label></h3>
                     <span class="box int_name">
-                        <input type="text" id="name" class="int" maxlength="20">
+                        <input type="text" id="user_name" class="int" maxlength="20" name="user_name">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -70,7 +76,7 @@
                         <!-- BIRTH_YY -->
                         <div id="bir_yy">
                             <span class="box">
-                                <input type="text" id="yy" class="int" maxlength="4" placeholder="년(4자)">
+                                <input type="text" id="user_birth" class="int" maxlength="4" placeholder="년(4자)" name="user_birth">
                             </span>
                         </div>
 
@@ -110,7 +116,7 @@
                 <div>
                     <h3 class="join_title"><label for="email">본인확인 이메일<span class="optional">(선택)</span></label></h3>
                     <span class="box int_email">
-                        <input type="text" id="email" class="int" maxlength="100" placeholder="선택입력">
+                        <input type="text" id="user_email" class="int" maxlength="100" placeholder="선택입력" name="user_email">
                     </span>
                     <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>    
                 </div>
@@ -119,7 +125,7 @@
                 <div>
                     <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
                     <span class="box int_mobile">
-                        <input type="tel" id="mobile" class="int" maxlength="16" placeholder="전화번호 입력">
+                        <input type="tel" id="mobile" class="int" maxlength="16" placeholder="전화번호 입력" name="user_phone">
                     </span>
                     <span class="error_next_box"></span>    
                 </div>
@@ -127,11 +133,9 @@
 
                 <!-- JOIN BTN-->
                 <div class="btn_area">
-                    <button type="button" id="btnJoin">
-                        <span>가입하기</span>
-                    </button>
+                    <input type="button" class="join_button" id="btnJoin" value="가입하기">
                 </div>
-
+	</form><!-- form을 달아주지 않으면 기능이 작동하지 않음 -->
                 
 
             </div> 
@@ -140,5 +144,16 @@
         </div> 
         <!-- wrapper -->
     <script src="/resources/js/join.js"></script>
+ <script>
+
+	$(document).ready(function(){
+	//회원가입 버튼(회원가입 기능 작동)
+	$(".join_button").click(function(){
+		$("#join_form").attr("action", "/join/membership");
+		$("#join_form").submit();
+	});
+});
+
+</script>
     </body>
 </html>
